@@ -10,11 +10,13 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
     }
     public static void main(String[] args)
     {
-        String[] names = {"Sally","Tom","Greg","Bitch","Melly","Sigh","Eric","Me","Yu","Bozo"};
+        String[] names = {"Sally","Tom","Greg","Trish","Melly","Sigh","Eric","Me","Yu","Bozo"};
         MyLinkedList link = new MyLinkedList();
         for(String s: names)
         {
-            link.addFirst(s);
+            link.add(s);
+            if(link.contains(s))
+                System.out.println("True");
         }
         for(int i = 0;i<names.length/2;i++)
         {
@@ -194,12 +196,23 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
     @Override /** Return true if this list contains the element e */
     public boolean contains(E e) {
         System.out.println("Implementation left as an exercise");
-        return true;
+        Node<E> gen = new Node<>(e);
+        while(gen.hasNext())
+        {
+        }
+        if(gen.contain(e))
+            return true;
+        else return false;
     }
 
     @Override /** Return the element at the specified index */
     public E get(int index) {
         System.out.println("Implementation left as an exercise");
+        Node<E> temp = new Node<>(e);
+        for(int i = 0;i<index;i++)
+        {
+            
+        }
         return null;
     }
 
@@ -256,7 +269,6 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
             System.out.println("Implementation left as an exercise");
         }
     }
-
     private static class Node<E> {
         E element;
         Node<E> next;
@@ -266,8 +278,6 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
         }
     }
 }
-
-
 abstract class MyAbstractList<E> implements MyList<E> {
     protected int size = 0; // The size of the list
 
